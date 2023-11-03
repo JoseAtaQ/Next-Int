@@ -1,5 +1,5 @@
 COMMITS=$(shell git log --oneline | wc -l)
-MIN_COMMITS=12
+MIN_COMMITS=20
 SHELL=/bin/bash
 
 J_SRC=bits2int.j get_bit.j glyph2int.j nextInt.j
@@ -24,9 +24,10 @@ RESULT_CASE4="253"
 
 
 test: tags number_commits
+	@echo 
 	@echo \"make test_java\" to test your current version of nextInt.j
 	@echo \"make test_mips\" to test your current version of nextInt.s
-	@echo \"make final\" to test all your final versions of nextInt.*
+	@echo \"make final\" to test all your final versions of nextInt.\*
 	@echo \"make validate\" to validate your final submission
 
 test_java: nextInt.j
@@ -59,20 +60,23 @@ test_mips: nextInt.s
 
 
 final: final_java_code final_java_tac_code final_mips_code
-	git checkout main
+
 
 
 final_java_code:
 	@git checkout java_code 2> /dev/null || { echo "Error 'java_code' tag not in place" ; false ; }
 	make test_java
+	git checkout main
 
 final_java_tac_code:
 	@git checkout java_tac_code 2> /dev/null || { echo "Error 'java_tac_code' tag not in place" ; false ; }
 	make test_java
+	git checkout main
 
 final_mips_code:
 	@git checkout mips_code  2> /dev/null || { echo "Error 'mips_code' tag not in place" ; false ; }
 	make test_mips
+	git checkout main
 
 
 validate: tags number_commits
@@ -89,7 +93,7 @@ validate: tags number_commits
 # not sure why or what the work around is.
 number_commits:
 	@-test ! $(COMMITS) -lt $(MIN_COMMITS) || \
-	  { echo "Not enough commits" && false ; } 
+	  { echo You need a minimum of $(MIN_COMMITS) commits && false ; } 
 
 tags:
 	@-git tag | grep -q -e "java_code"      || echo "Missing java_code tag"
