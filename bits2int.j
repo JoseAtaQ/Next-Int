@@ -3,7 +3,7 @@ public static int get_bit(){
 
 	int c;
 
-	mips.read_d();
+	mips.read_c();
     c = mips.retval();
 
 	if (c == 0){
