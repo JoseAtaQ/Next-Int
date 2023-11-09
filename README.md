@@ -17,7 +17,7 @@ To accomplish this, there is a number of tasks that must be performed.
 
    1. Transform the 'bits2int()' and the 'nextInt()' (along with its support) into Java TAC code.
 
-   1. Implement, in MIPS, the 'nextInt(int radix)' subroutine and a supporting subroutine 'glyph2int(int radix)'
+   1. Implement, in MIPS, the 'nextInt(int radix)' subroutine and a supporting subroutine 'glyph2int(char glyph, int radix)'
 
    1. Validate your work via the `make validate`
 
@@ -115,7 +115,7 @@ To accomplish this, there is a number of tasks that must be performed.
       Notice that the char 'a' in the second test case terminates the binary sequence.  Hence, the string "0101" is converted into the number 5.
 
 
-### Task 2. 'nextInt(int radix)' and 'glyph2digit(int radix)' in Java
+### Task 2. 'nextInt(int radix)' and 'glyph2digit(char radix, int radix)' in Java
 
    1. Consider how you would refactor your code from above to work for any base from 2..16
 
@@ -123,9 +123,11 @@ To accomplish this, there is a number of tasks that must be performed.
 
    1. Refactor your get_bit() method to:
       - Name: public static int glyph2int(char glyph, int radix);
-      - Arguments: radix
+      - Arguments: 
+        - glyph: an ASCII character to be changed to a number
+        - radix: the base of the number
       - Description:
-        * reads a glyph within the appropriate radix
+        * based upon the parameter glyph within the appropriate radix
         * converts the glyph to the corresponding base10 number
       - Return Value:
         * an integer
@@ -258,8 +260,4 @@ To accomplish this, there is a number of tasks that must be performed.
       git push
       git push --tags
       ```
-
-
-
-
 
