@@ -5,14 +5,12 @@ public static int glyph2int(char glyph, int radix){
     int i = 0;
     int c = -1;
 
-    if (radix == 16){
+    // special case base 16
+    if (radix == 16 || glyph >= 'a'){
         c = glyph - 'A' + 10;
-    }
+    } 
 
-    i = i * radix + glyph; 
-
-
-    return i;
+    return c;
 }
 
 
