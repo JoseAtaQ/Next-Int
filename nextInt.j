@@ -26,35 +26,22 @@ static char [] buffer = new char[256];
 
 public static int nextInt(int radix){
     // deals with bunch of glyphs
-    int i;
-    int j;
-    int r = 0;
     int buffer_length;
-    int fir;
-    int sec = 0;
+    int i;
+    int r = 0;
+    int value = 0;
     
 
     mips.read_s(buffer, 256);
     buffer_length = mips.retval();
 
-    //while(buffer[i] != '\0' && buffer[i] != -1)
-
     for (i = 0; buffer[i] != '\0'; i++){
-        fir = glyph2int(buffer[i], radix);
-        if (fir == -1){
-            break;
+
+        value = glyph2int(buffer[i], radix);// gives me the value of a glyph following the index
+        if (value != -1){
+            r = r * radix + value;
         }
-        for (j = i+1; buffer[j] != '\0'; j++){
-            sec = glyph2int(buffer[j], radix);
-            if (sec == -1){
-                break;
-            }    
-        }   
-        r = fir * radix + sec;
-       
-        
     }// end for  
-    
     return r;
 }// end nextInt
 
