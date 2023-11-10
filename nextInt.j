@@ -38,12 +38,17 @@ public static int nextInt(int radix){
 
     //while(buffer[i] != '\0' && buffer[i] != -1)
 
-    for (i = 1; buffer[i] != '\0'; i++){
+    for (i = 0; buffer[i] != '\0'; i++){
+
         c = glyph2int(buffer[i], radix);
-        j = glyph2int(buffer[i+1], radix);
-        r = c * radix + j;
+        if (c == -1){
+            break;
+        }    
+        r = 0 * radix + c;
+        //r = c * radix + c;
+        
     }// end for  
     
     return r;
-}// end nesInt
+}// end nextInt
 
