@@ -1,5 +1,5 @@
 public static int glyph2int(char glyph, int radix){
-    // deals with glyphs one by one
+    // deals with one glyph
     // convert one glyph to int
 
     int i = 0;
@@ -18,13 +18,18 @@ static char [] buffer = new char[256];
 
 public static int nextInt(int radix){
     // deals with bunch of glyphs
-
+    int i;
+    int r = 0;
     int buffer_length;
 
     mips.read_s(buffer, 256);
-    buffer_length = mips.retval();  
+    buffer_length = mips.retval();
 
 
-    return 0;
+    for (i = 0; buffer[i] != '\0'; i++){
+        r = buffer[i] * radix + buffer[i+1];  
+    }
+
+    return r;
 }
 
