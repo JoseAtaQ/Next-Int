@@ -3,13 +3,19 @@ public static int glyph2int(char glyph, int radix){
     // converts glyph to digits
 
     int i = 0;
-    int c = -1;
+    int c = 0;
 
-    if (radix == 16 || glyph >= 'a'){
+    if (glyph >= 'A' && glyph <= 'F'){
         c = glyph - 'A' + 10;
     } 
-
+    if (glyph >= '1' && glyph <= '9'){
+        c = glyph - '0';
+    }
+    if (c >= radix){
+        c = -1;
+    } 
     return c;
+
 }
 
 
@@ -27,10 +33,16 @@ public static int nextInt(int radix){
     buffer_length = mips.retval();
 
     for (i = 0; buffer[i] != '\0'; i++){
-        c = glyph2int(buffer[i], radix);
+
+        r = buffer[i] * radix + buffer[i+1];
+        if (buffer[i] > radix){
+            buffer[i] = '\0';
+        }
+        
+        /*c = glyph2int(buffer[i], radix);
         for (j = 0; c != -1; j++){
             r = c * radix + c; 
-        }
+        }*/
     }// end for  
     
     return r;
