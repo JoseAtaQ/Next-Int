@@ -36,8 +36,11 @@ public static int nextInt(int radix){
     mips.read_s(buffer, 256);
     buffer_length = mips.retval();
 
+    //while(buffer[i] != '\0' && buffer[i] != -1)
+
     for (i = 1; buffer[i] != '\0'; i++){
         c = glyph2int(buffer[i], radix);
+        j = glyph2int(buffer[i+1], radix);
         r = c * radix + j;
     }// end for  
     
