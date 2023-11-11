@@ -66,14 +66,19 @@ final: final_java_code final_java_tac_code final_mips_code
 final_java_code:
 	@git checkout java_code 2> /dev/null || { echo "Error 'java_code' tag not in place" ; false ; }
 	make test_java
+	make checkout main
 
 final_java_tac_code:
 	@git checkout java_tac_code 2> /dev/null || { echo "Error 'java_tac_code' tag not in place" ; false ; }
 	make test_java
+	make checkout main
+
 
 final_mips_code:
 	@git checkout mips_code  2> /dev/null || { echo "Error 'mips_code' tag not in place" ; false ; }
 	make test_mips
+	make checkout main
+
 
 
 validate: tags number_commits
