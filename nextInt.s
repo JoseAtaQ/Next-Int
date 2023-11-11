@@ -5,6 +5,9 @@
                 .include "macros/syscalls.s"    
                 .include "macros/subroutine.s"
                 .include "macros/stack.s"
+                .macro dec(%reg)
+                  addi %reg, %reg, -1
+                .end_macro
                 
 
                         #public static int glyph2int(char glyph, int radix){
