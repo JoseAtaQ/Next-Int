@@ -1,7 +1,9 @@
+.data                                 
+buffer:       .space 256                
+                .text                
                 .globl nextInt
+                .globl glyph2int
 
-                .data
-                .text
                 .include "macros/syscalls.s"    
                 .include "macros/subroutine.s"
                 .include "macros/stack.s"
@@ -10,59 +12,59 @@
                 .end_macro
                 
 
-                        #public static int glyph2int(char glyph, int radix){
-                        #// deals with glyphs
-                        #// converts glyph to digits                    
+glyph2int:      nop                     #public static int glyph2int(char glyph, int radix){
+                #$t0: glyph
+                #$t1: radix
 
-                        #int i = 0;
-                        #int c = 0;
+                move $t0, $a0           
+                move $t1, $a1                                              
 
-initA:                  #;
-                        #if (glyph >= 'A' && glyph <= 'F'){
-consA:                  #   ;          
-                        #   c = glyph - 'A' + 10;
-                        #}
-forwardA:               # ;
+                #$t2: i                 #int i = 0;
+                #$t3: c                 #int c = 0;
+                li $t2, 0
+                li $t3, 0
 
-inita:                    #;         
-                        #if (glyph >= 'a' && glyph <= 'f'){
-consa:                  #    ;                
-                        #    c = glyph - 'a' + 10;
-                        #} 
-forwada:                #;
+initA:          nop                     #;
+                                        #if (glyph >= 'A' && glyph <= 'F'){
+consA:                                  #   ;          
+                                        #   c = glyph - 'A' + 10;
+                                        #}
+forwardA:                               # ;
 
-init0:                  #;            
-                        #if (glyph >= '0' && glyph <= '9'){
-cons0:                  #    ;                
-                        #    c = glyph - '0';
-                        #}
-forwad0:                #;
+inita:                                  #;         
+                                        #if (glyph >= 'a' && glyph <= 'f'){
+consa:                                  #    ;                
+                                        #    c = glyph - 'a' + 10;
+                                        #} 
+forwada:                                #;
 
-init:                   #;            
-                        #if (c >= radix){
-cons:                   #    ;
-                        #    c = -1;
-                        #}
-forwad:                 #;        
-                        #return c;
+init0:                                  #;            
+                                        #if (glyph >= '0' && glyph <= '9'){
+cons0:                                  #    ;                
+                                        #    c = glyph - '0';
+                                        #}
+forwad0:                                #;
 
-                        #}// end glyph2int
+init:                                   #;            
+                blt $t2, $t1, forwad    #if (c >= radix){
+cons:           nop                     #    ;
+                        li $t3, -1      #    c = -1;
+                                        #}
+forwad:         nop                     #;        
+                move $v0, $t3           #return c;
+
+                                        #}// end glyph2int
                 
+                                        #static char [] buffer = new char[256];
 
-static char [] buffer = new char[256];
-
-public static int nextInt(int radix){
-            // deals with bunch of glyphs
-            int buffer_length;
-            int i;
-            int r = 0;
-            int value = 0;
-                    
-
-            mips.read_s(buffer, 256);
-            buffer_length = mips.retval();      
-
-            i = 0;
+nextInt:        nop                     #public static int nextInt(int radix){
+            
+                #$t4:                   int buffer_length;
+                #$t5                    int i;
+                li $t6, 0               #int r = 0;
+                li $t7, 0               #int value = 0;
+                #$t8                    mips.read_s(buffer, 256);
+                #$t9                    buffer_length = mips.retval();                                     #    i = 0;
 fnit:       ;
 loop:       for (; buffer[i] != '\0';){       
 body:           ;
@@ -84,4 +86,4 @@ done:       ;
 
 // java complete: Fri Nov 10 15:27:52 PST 2023
 
-// Task 2 complete: Fri Nov 10 16:46:50 PST 2023
+// java tac complete: Fri Nov 10 16:46:50 PST 2023
