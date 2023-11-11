@@ -6,9 +6,11 @@ public static int glyph2int(char glyph, int radix){
             int c = 0;
 
 initA:      ;
-            if (glyph >= 'A' && glyph <= 'F'){
+            if (glyph >= 'A'){
+                if (glyph <= 'F'){
 consA:          ;          
                 c = glyph - 'A' + 10;
+                }
             }
 forwardA:    ;
 
