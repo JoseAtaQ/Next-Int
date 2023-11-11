@@ -10,7 +10,7 @@ initA:      ;
 consA:          ;          
                 c = glyph - 'A' + 10;
             }
-forwardA:   ;
+forwardA:    ;
 
 inita:      ;         
             if (glyph >= 'a' && glyph <= 'f'){
@@ -31,8 +31,7 @@ init:       ;
 cons:           ;
                 c = -1;
             }
-forwad:     ;
-
+forwad:     ;        
             return c;
 
 }
@@ -41,34 +40,33 @@ forwad:     ;
 static char [] buffer = new char[256];
 
 public static int nextInt(int radix){
-    // deals with bunch of glyphs
+            // deals with bunch of glyphs
             int buffer_length;
             int i;
             int r = 0;
             int value = 0;
-            
-        
-             mips.read_s(buffer, 256);
-            buffer_length = mips.retval();
+                    
 
-             i = 0;
-finit:       ;
-loop:        for (; buffer[i] != '\0';) {
+            mips.read_s(buffer, 256);
+            buffer_length = mips.retval();      
+
+            i = 0;
+fnit:       ;
+loop:       for (; buffer[i] != '\0';){       
 body:           ;
-                i ++;
                 value = glyph2int(buffer[i], radix);// gives me the value of a glyph following the index
-               
-        initf:  ;                    
+        initF:  ;      
                 if (value != -1){
-        cons:       ;     
-                    r = r * radix; 
+        consF:      ;   
+                    r = r * radix;
                     r = r + value;
                 }
-        forwadf:;        
-
+        forwadF:;
+                i ++;
+                continue loop;
             }// end for
 done:       ;       
-            return r;
+    return r;
 }// end nextInt
 
 
