@@ -7,24 +7,34 @@ public static int glyph2int(char glyph, int radix){
 
 initA:      ;
             if (glyph >= 'A'){
+        initF:  ;      
                 if (glyph <= 'F'){
 consA:          ;          
-                c = glyph - 'A' + 10;
+                    c = glyph - 'A' + 10;
                 }
+        forwadF:;       
             }
 forwardA:    ;
 
 inita:      ;         
-            if (glyph >= 'a' && glyph <= 'f'){
+            if (glyph >= 'a'){
+        initf:  ;      
+                if (glyph <= 'f'){
 consa:          ;                
-                c = glyph - 'a' + 10;
+                    c = glyph - 'a' + 10;
+                }
+        forwadf:;            
             } 
 forwada:    ;
 
 init0:      ;            
-            if (glyph >= '0' && glyph <= '9'){
+            if (glyph >= '0'){
+        init9:  ;      
+                if (glyph <= '9'){
 cons0:          ;                
-                c = glyph - '0';
+                    c = glyph - '0';
+                }
+        forwad9:;            
             }
 forwad0:    ;
 
@@ -57,13 +67,13 @@ fnit:       ;
 loop:       for (; buffer[i] != '\0';){       
 body:           ;
                 value = glyph2int(buffer[i], radix);// gives me the value of a glyph following the index
-        initF:  ;      
+        initr:  ;      
                 if (value != -1){
-        consF:      ;   
+        consr:      ;   
                     r = r * radix;
                     r = r + value;
                 }
-        forwadF:;
+        forwadr:;
                 i ++;
                 continue loop;
             }// end for
@@ -73,3 +83,5 @@ done:       ;
 
 
 // java complete: Fri Nov 10 15:27:52 PST 2023
+
+// Java TAC complete: Sat Nov 11 14:31:57 PST 2023
