@@ -182,9 +182,7 @@ To accomplish this, there is a number of tasks that must be performed.
    Prepare to write your MIPS code by first transforming your Java code into Java TAC code
 
    1. Transform the methods in each of your files to Java TAC code.
-      - get_bit.j: contains the get_bit method
       - bits2int.j: contains the bits2int and get_bit methods
-      - glyph2int.j: contains the glyph2int method
       - nextInt.j: contains the nextInt and glyph2int methods
 
    1. Test your methods as you did above.

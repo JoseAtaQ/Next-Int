@@ -60,23 +60,20 @@ test_mips: nextInt.s
 
 
 final: final_java_code final_java_tac_code final_mips_code
-
+	git checkout main
 
 
 final_java_code:
 	@git checkout java_code 2> /dev/null || { echo "Error 'java_code' tag not in place" ; false ; }
 	make test_java
-	git checkout main
 
 final_java_tac_code:
 	@git checkout java_tac_code 2> /dev/null || { echo "Error 'java_tac_code' tag not in place" ; false ; }
 	make test_java
-	git checkout main
 
 final_mips_code:
 	@git checkout mips_code  2> /dev/null || { echo "Error 'mips_code' tag not in place" ; false ; }
 	make test_mips
-	git checkout main
 
 
 validate: tags number_commits
@@ -97,7 +94,7 @@ number_commits:
 
 tags:
 	@-git tag | grep -q -e "java_code"      || echo "Missing java_code tag"
-	@-git tag | grep -q -e "java_tag_code"  || echo "Missing java_tac_code tag"
+	@-git tag | grep -q -e "java_tac_code"  || echo "Missing java_tac_code tag"
 	@-git tag | grep -q -e "mips_code"      || echo "Missing mips_code tag"
 
 
@@ -131,18 +128,18 @@ grade: $(TO_GRADE)
 
 grade_all: grade_java_code grade_java_tac_code grade_mips_code grade_validation
 
-grade_java_code: test_java_code
+grade_java_code: final_java_code
 	cp nextInt.j nextInt.java
 	subl nextInt.java
 	subl grade.report
 	git checkout main
 
-grade_java_tac_code: grade_java_code test_java_tac_code
+grade_java_tac_code: grade_java_code final_java_tac_code
 	git checkout java_tac_code
 	subl nextInt.j
 	git checkout main
 
-grade_mips_code: grade_java_tac_code test_mips_code
+grade_mips_code: grade_java_tac_code final_mips_code
 	subl nextInt.s
 	git checkout main
 
