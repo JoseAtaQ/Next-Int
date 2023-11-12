@@ -1,0 +1,133 @@
+make[1]: Entering directory '/home/jose_samir/classes/comp122/deliverables/44-nextint-JoseAtaQ'
+make test_java
+make[2]: Entering directory '/home/jose_samir/classes/comp122/deliverables/44-nextint-JoseAtaQ'
+echo "010100" | java_subroutine nextInt 2
+#########################################
+# Above is the output from your program
+#########################################
+
+v0:         20; 0x00 00 00 14; 0b0000 0000 0000 0000 0000 0000 0001 0100;
+
+Correct answer:  20
+
+echo "010100" | java_subroutine nextInt 4
+#########################################
+# Above is the output from your program
+#########################################
+
+v0:        272; 0x00 00 01 10; 0b0000 0000 0000 0000 0000 0001 0001 0000;
+
+Correct answer:  272
+
+echo "2FAA" | java_subroutine nextInt 16
+#########################################
+# Above is the output from your program
+#########################################
+
+v0:      12202; 0x00 00 2F AA; 0b0000 0000 0000 0000 0010 1111 1010 1010;
+
+Correct answer:  12202
+
+echo "253FAA" | java_subroutine nextInt 10
+#########################################
+# Above is the output from your program
+#########################################
+
+v0:        253; 0x00 00 00 FD; 0b0000 0000 0000 0000 0000 0000 1111 1101;
+
+Correct answer:  253
+
+make[2]: Leaving directory '/home/jose_samir/classes/comp122/deliverables/44-nextint-JoseAtaQ'
+git checkout main
+Previous HEAD position was b6a134f Initial Java version complete
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+make test_java
+make[2]: Entering directory '/home/jose_samir/classes/comp122/deliverables/44-nextint-JoseAtaQ'
+echo "010100" | java_subroutine nextInt 2
+#########################################
+# Above is the output from your program
+#########################################
+
+v0:         20; 0x00 00 00 14; 0b0000 0000 0000 0000 0000 0000 0001 0100;
+
+Correct answer:  20
+
+echo "010100" | java_subroutine nextInt 4
+#########################################
+# Above is the output from your program
+#########################################
+
+v0:        272; 0x00 00 01 10; 0b0000 0000 0000 0000 0000 0001 0001 0000;
+
+Correct answer:  272
+
+echo "2FAA" | java_subroutine nextInt 16
+#########################################
+# Above is the output from your program
+#########################################
+
+v0:      12202; 0x00 00 2F AA; 0b0000 0000 0000 0000 0010 1111 1010 1010;
+
+Correct answer:  12202
+
+echo "253FAA" | java_subroutine nextInt 10
+#########################################
+# Above is the output from your program
+#########################################
+
+v0:        253; 0x00 00 00 FD; 0b0000 0000 0000 0000 0000 0000 1111 1101;
+
+Correct answer:  253
+
+make[2]: Leaving directory '/home/jose_samir/classes/comp122/deliverables/44-nextint-JoseAtaQ'
+git checkout main
+Previous HEAD position was 3c1c93f Java TAC fixed
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+make test_mips
+make[2]: Entering directory '/home/jose_samir/classes/comp122/deliverables/44-nextint-JoseAtaQ'
+echo "010100" | mips_subroutine nextInt 2
+#########################################
+# Above is the output from your program
+#########################################
+
+v0:          0; 0x00 00 00 00; 0b0000 0000 0000 0000 0000 0000 0000 0000;
+
+Correct answer:  20
+
+echo "010100" | mips_subroutine nextInt 4
+#########################################
+# Above is the output from your program
+#########################################
+
+v0:          0; 0x00 00 00 00; 0b0000 0000 0000 0000 0000 0000 0000 0000;
+
+Correct answer:  272
+
+echo "2FAA" | mips_subroutine nextInt 16
+#########################################
+# Above is the output from your program
+#########################################
+
+v0:          0; 0x00 00 00 00; 0b0000 0000 0000 0000 0000 0000 0000 0000;
+
+Correct answer:  12202
+
+echo "253FAA" | mips_subroutine nextInt 10
+#########################################
+# Above is the output from your program
+#########################################
+
+v0:          0; 0x00 00 00 00; 0b0000 0000 0000 0000 0000 0000 0000 0000;
+
+Correct answer:  253
+
+make[2]: Leaving directory '/home/jose_samir/classes/comp122/deliverables/44-nextint-JoseAtaQ'
+git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+git checkout main
+Already on 'main'
+Your branch is up to date with 'origin/main'.
+make[1]: Leaving directory '/home/jose_samir/classes/comp122/deliverables/44-nextint-JoseAtaQ'
