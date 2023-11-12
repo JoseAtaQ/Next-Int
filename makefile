@@ -82,6 +82,7 @@ final_mips_code:
 
 
 validate: tags number_commits
+	-rm -f validation.output
 	-make -k final > validation.output 2>&1
 	-git add validation.output
 	-git commit -m 'Auto adding validation step' validation.output
